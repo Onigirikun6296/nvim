@@ -4,12 +4,10 @@ return {
 			'nvim-neotest/nvim-nio',
 			'rcarriga/nvim-dap-ui',
 			'mfussenegger/nvim-dap-python',
-			'folke/neodev.nvim'
 		},
 		config = function()
 			local dap = require('dap')
 			vim.fn.sign_define('DapBreakpoint', {text='', texthl='', linehl='', numhl=''})
-			require('dap-python').setup('/usr/bin/python')
 			
 			require("dapui").setup({
 			  icons = { expanded = "▾", collapsed = "▸" },
@@ -65,9 +63,8 @@ return {
 			  }
 			})
 
-			require("neodev").setup({
-				library = { plugins = { "nvim-dap-ui" }, types = true },
-			})
+
+			require('dap-python').setup('/usr/bin/python')
 			
 			local extension_path = '/HDD/vscode_ext/extension/'
 			local codelldb_path = extension_path .. 'adapter/codelldb'
@@ -112,15 +109,15 @@ return {
 			imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 			smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 			
-			
-			nnoremap <silent> <F5>       :lua require('dap').continue()<CR>
-			nnoremap <silent> <leader>n  :lua require('dap').step_over()<CR>
-			nnoremap <silent> <leader>si :lua require('dap').step_into()<CR>
-			nnoremap <silent> <leader>so :lua require('dap').step_out()<CR>
-			nnoremap <silent> <leader>b  :lua require('dap').toggle_breakpoint()<CR>
-			nnoremap <silent> <leader>dr :lua require('dap').repl.toggle()<CR>
-			nnoremap <silent> <leader>dd :lua require('dapui').toggle()<CR>
 			]])
+
+			vim.keymap.set('n', '<F5>',       require('dap').continue, { noremap = true, silent = true })
+			vim.keymap.set('n', '<leader>n',  require('dap').step_over, { noremap = true, silent = true })
+			vim.keymap.set('n', '<leader>si', require('dap').step_into, { noremap = true, silent = true })
+			vim.keymap.set('n', '<leader>so', require('dap').step_out, { noremap = true, silent = true })
+			vim.keymap.set('n', '<leader>b',  require('dap').toggle_breakpoint, { noremap = true, silent = true })
+			vim.keymap.set('n', '<leader>dr', require('dap').repl.toggle, { noremap = true, silent = true })
+			vim.keymap.set('n', '<leader>dd', function() require('dap') require('dapui').toggle() end, { noremap = true, silent = true })
 
 
 		end
