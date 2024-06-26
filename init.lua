@@ -19,10 +19,11 @@ vim.opt.ttimeoutlen = 100
 
 vim.opt.spell       = true
 vim.opt.spelllang   = "en_gb"
-vim.g.mapleader     = " "
 
 vim.opt.conceallevel  = 2
 vim.opt.concealcursor = 'nc'
+
+vim.g.mapleader     = " "
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -36,22 +37,23 @@ require("lazy").setup({
     { import = "plugins" },
   },
   checker = { enabled = true },
+  -- rocks = { enabled = false },
 })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- "Navigate by display lines instead of regular lines
-vim.api.nvim_set_keymap("", "j", "gj", {noremap = true})
-vim.api.nvim_set_keymap("", "k", "gk", {noremap = true})
+vim.keymap.set("", "j", "gj", {noremap = true})
+vim.keymap.set("", "k", "gk", {noremap = true})
 
 -- "Switch splits quickly
-vim.api.nvim_set_keymap("", "<c-j>", "<c-w>j", {noremap = true})
-vim.api.nvim_set_keymap("", "<c-k>", "<c-w>k", {noremap = true})
-vim.api.nvim_set_keymap("", "<c-h>", "<c-w>h", {noremap = true})
-vim.api.nvim_set_keymap("", "<c-l>", "<c-w>l", {noremap = true})
+vim.keymap.set("", "<c-j>", "<c-w>j", {noremap = true})
+vim.keymap.set("", "<c-k>", "<c-w>k", {noremap = true})
+vim.keymap.set("", "<c-h>", "<c-w>h", {noremap = true})
+vim.keymap.set("", "<c-l>", "<c-w>l", {noremap = true})
 
 -- " Open Terminal
-vim.api.nvim_set_keymap("n", "tt", ":split<Bar>terminal<CR>", {noremap = true})
+vim.keymap.set("n", "tt", ":split<Bar>terminal<CR>", {noremap = true})
 
 
 -- "Save me from misspressing shift
