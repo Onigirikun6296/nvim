@@ -10,7 +10,6 @@ return {
 			'hrsh7th/cmp-nvim-lua',
 			'uga-rosa/cmp-dictionary',
 			'rafamadriz/friendly-snippets',
-
 		},
 		config = function()
 			local cmp = require'cmp'

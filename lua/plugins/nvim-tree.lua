@@ -10,6 +10,6 @@ return {
 					relativenumber = true
 				}
 			}) 
-			vim.api.nvim_set_keymap("n", "<c-f>", ":NvimTreeToggle<CR>", {noremap = true})
+			vim.keymap.set("n", "<c-f>", ":NvimTreeToggle<CR>", {noremap = true})
 					end
 }
