@@ -1,18 +1,12 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {
-    icons = {
-      separator = "→"
-    },
-  },
+  opts = {icons = {separator = "→"}},
   keys = {
     {
       "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-  },
+      function() require("which-key").show({global = false}) end,
+      desc = "Buffer Local Keymaps (which-key)"
+    }
+  }
 }
