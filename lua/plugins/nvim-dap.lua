@@ -52,40 +52,29 @@ return {
     })
 
     require('dap-python').setup('/usr/bin/python')
+    local dap = require("dap")
 
-    local extension_path = '/HDD/vscode_ext/extension/'
-    local codelldb_path = extension_path .. 'adapter/codelldb'
-    local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-
-    dap.adapters.cppdbg = {
-      id = 'cppdbg',
-      type = 'executable',
-      command = '/usr/local/bin/cpptools/extension/debugAdapters/bin/OpenDebugAD7'
+    dap.adapters.gdb = {
+      type = "executable",
+      command = "gdb",
+      args = { "-i", "dap" }
     }
 
-    dap.configurations.cpp = {
+    dap.configurations.c = {
       {
-        name = "Launch file",
-        type = "cppdbg",
+        name = "Launch",
+        type = "gdb",
         request = "launch",
         program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/',
-                              'file')
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = true,
-        setupCommands = {
-          {
-            text = '-enable-pretty-printing',
-            description = 'enable pretty printing',
-            ignoreFailures = false
-          }
-        }
-
+        cwd = "${workspaceFolder}",
+        stopAtBeginningOfMainSubprogram = false
       }
     }
 
-    dap.configurations.c = dap.configurations.cpp
+    dap.configurations.cpp = dap.configurations.c
+    dap.configurations.rust = dap.configurations.c
 
     vim.cmd([[
 			imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
