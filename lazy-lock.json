@@ -28,6 +28,7 @@
   "org-roam.nvim": { "branch": "main", "commit": "45153562e7bfe806d84747d6518cad714c63ca2e" },
   "orgmode": { "branch": "master", "commit": "ab24c847538f3c36cbc0da33210cb3eba32e69b9" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
+  "sniprun": { "branch": "master", "commit": "a29d7b1c313b00980015ad79fa0ab512a0729940" },
   "sonokai": { "branch": "master", "commit": "598d29bef1cdea1eef4749c96824af0ae2f9350c" },
   "telescope.nvim": { "branch": "master", "commit": "47ab113de540d1d1d9cdf7dba76dc60ddd808bb8" },
   "vim-glsl": { "branch": "master", "commit": "40dd0b143ef93f3930a8a409f60c1bb85e28b727" },
