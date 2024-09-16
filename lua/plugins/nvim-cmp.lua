@@ -64,7 +64,7 @@ return {
     capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local servers = {
-      'nil_ls', 'ccls', 'rust_analyzer', 'jedi_language_server', 'tsserver',
+      'nil_ls', 'ccls', 'rust_analyzer', 'jedi_language_server', 'ts_ls',
       'html', 'cssls'
     }
 
